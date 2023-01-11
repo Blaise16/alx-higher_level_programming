@@ -1,16 +1,14 @@
 #!/usr/bin/python3
-add_attribute = __import__('101-add_attribute').add_attribute
+"""this module defines a Rectangle subclass Square"""
+Rectangle = __import__('9-rectangle').Rectangle
 
-class MyClass():
-    pass
 
-mc = MyClass()
-add_attribute(mc, "name", "John")
-print(mc.name)
+class Square(Rectangle):
+    """Represent a square"""
 
-try:
-    a = "My String"
-    add_attribute(a, "name", "Bob")
-    print(a.name)
-except Exception as e:
-    print("[{}] {}".format(e.__class__.__name__, e))
+    def __init__(self, size):
+        """Initialize a new square
+        """
+        self.integer_validator("size", size)
+        super().__init__(size, size)
+        self.__size = size
